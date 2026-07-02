@@ -25,6 +25,7 @@ export interface TeamMember {
   role: string;
   bio: string;
   initials: string;
+  image: string;
   social: {
     linkedin?: string;
     twitter?: string;
@@ -52,10 +53,13 @@ export interface ContactInfo {
   email: string;
   phone: string;
   address: string;
+  mapsUrl: string;
 }
+
+export type SocialPlatform = "facebook" | "instagram" | "linkedin";
 
 export interface SocialLink {
   label: string;
   href: string;
-  icon: LucideIcon;
+  platform: SocialPlatform;
 }

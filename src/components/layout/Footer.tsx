@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { SOCIAL_ICON_MAP } from "@/components/icons/SocialIcons";
 import {
   AGENCY_NAME,
   CONTACT_INFO,
@@ -27,16 +28,21 @@ export function Footer() {
               through strategy, creativity, and measurable results.
             </p>
             <div className="mt-6 flex gap-4">
-              {SOCIAL_LINKS.map((social) => (
+              {SOCIAL_LINKS.map((social) => {
+                const Icon = SOCIAL_ICON_MAP[social.platform];
+                return (
                 <a
                   key={social.label}
                   href={social.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="flex h-10 w-10 items-center justify-center rounded-full border border-border text-muted transition-colors hover:border-accent/50 hover:text-accent"
                   aria-label={social.label}
                 >
-                  <social.icon size={16} />
+                  <Icon size={16} />
                 </a>
-              ))}
+                );
+              })}
             </div>
           </div>
 
@@ -91,13 +97,22 @@ export function Footer() {
               </li>
               <li>
                 <a
-                  href={`tel:${CONTACT_INFO.phone.replace(/\s/g, "")}`}
+                  href={`tel:+91${CONTACT_INFO.phone.replace(/\s/g, "")}`}
                   className="transition-colors hover:text-accent"
                 >
-                  {CONTACT_INFO.phone}
+                  +91 {CONTACT_INFO.phone}
                 </a>
               </li>
-              <li>{CONTACT_INFO.address}</li>
+              <li>
+                <a
+                  href={CONTACT_INFO.mapsUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="transition-colors hover:text-accent"
+                >
+                  {CONTACT_INFO.address}
+                </a>
+              </li>
             </ul>
           </div>
         </div>

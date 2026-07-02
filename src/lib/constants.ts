@@ -1,4 +1,5 @@
 import {
+  Clapperboard,
   Globe,
   Mail,
   Megaphone,
@@ -8,7 +9,6 @@ import {
   Share2,
   Target,
   Users,
-  Clapperboard,
 } from "lucide-react";
 import type {
   AboutPillar,
@@ -148,6 +148,7 @@ export const TEAM_MEMBERS: TeamMember[] = [
     role: "Founder & CEO",
     bio: "Digital strategist with 10+ years driving growth for Kerala brands.",
     initials: "AN",
+    image: "/images/team/1.png",
     social: { linkedin: "#", twitter: "#" },
   },
   {
@@ -155,6 +156,7 @@ export const TEAM_MEMBERS: TeamMember[] = [
     role: "Head of Creative",
     bio: "Brand designer passionate about crafting memorable visual identities.",
     initials: "MT",
+    image: "/images/team/2.png",
     social: { linkedin: "#", instagram: "#" },
   },
   {
@@ -162,6 +164,7 @@ export const TEAM_MEMBERS: TeamMember[] = [
     role: "Performance Lead",
     bio: "Paid media expert specializing in Google and Meta ad optimization.",
     initials: "RM",
+    image: "/images/team/3.png",
     social: { linkedin: "#", twitter: "#" },
   },
   {
@@ -169,6 +172,7 @@ export const TEAM_MEMBERS: TeamMember[] = [
     role: "SEO Strategist",
     bio: "Technical SEO specialist helping businesses dominate local search.",
     initials: "AK",
+    image: "/images/team/4.png",
     social: { linkedin: "#", instagram: "#" },
   },
 ];
@@ -209,13 +213,26 @@ export const FAQ_ITEMS: FAQItem[] = [
 export const CONTACT_INFO: ContactInfo = {
   email: "upvoxcreative@gmail.com",
   phone: "8921 569922",
-  address: "Infopark, Kochi, Kerala 682042, India",
+  address: "MG Road, Ravipuram, Kochi, Kerala",
+  mapsUrl: "https://maps.app.goo.gl/CHDmgviQbXkXUPVS7",
 };
 
 export const SOCIAL_LINKS: SocialLink[] = [
-  { label: "LinkedIn", href: "#", icon: Share2 },
-  { label: "Instagram", href: "#", icon: Share2 },
-  { label: "Twitter", href: "#", icon: Share2 },
+  {
+    label: "Facebook",
+    href: "https://www.facebook.com/share/1BeC2Mr4Y1/?mibextid=wwXIfr&ref=1",
+    platform: "facebook",
+  },
+  {
+    label: "Instagram",
+    href: "https://www.instagram.com/upvoxcreative?igsh=MWxjM3JrZ2N1ZzZuNg==",
+    platform: "instagram",
+  },
+  {
+    label: "LinkedIn",
+    href: "https://www.linkedin.com/company/upvox-creative/",
+    platform: "linkedin",
+  },
 ];
 
 export const FOOTER_SERVICES = SERVICES.map((s) => s.title);

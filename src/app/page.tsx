@@ -25,7 +25,7 @@ export default function Home() {
         <ServicesSection />
         <WhyChooseUsSection />
         <StatsSection />
-        <TeamSection />
+        {/* <TeamSection /> */}
         <FAQSection />
         <ContactSection />
       </main>

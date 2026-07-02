@@ -12,10 +12,9 @@ export function getLocalBusinessSchema() {
     email: CONTACT_INFO.email,
     address: {
       "@type": "PostalAddress",
-      streetAddress: "Infopark",
+      streetAddress: "MG Road, Ravipuram",
       addressLocality: "Kochi",
       addressRegion: "Kerala",
-      postalCode: "682042",
       addressCountry: "IN",
     },
     areaServed: {
@@ -23,7 +22,11 @@ export function getLocalBusinessSchema() {
       name: "Kerala",
     },
     priceRange: "$$",
-    sameAs: [],
+    sameAs: [
+      "https://www.facebook.com/share/1BeC2Mr4Y1/",
+      "https://www.instagram.com/upvoxcreative",
+      "https://www.linkedin.com/company/upvox-creative/",
+    ],
     knowsAbout: [
       "Search Engine Optimization",
       "Social Media Marketing",

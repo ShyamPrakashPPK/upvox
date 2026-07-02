@@ -230,6 +230,28 @@ h6 {
   );
 }
 
+@keyframes team-marquee {
+  from {
+    transform: translate3d(0, 0, 0);
+  }
+  to {
+    transform: translate3d(-50%, 0, 0);
+  }
+}
+
+.team-marquee-track {
+  display: flex;
+  width: max-content;
+  flex-shrink: 0;
+  will-change: transform;
+  animation: team-marquee 35s linear infinite;
+  animation-direction: normal;
+}
+
+.team-marquee:hover .team-marquee-track {
+  animation-play-state: paused;
+}
+
 *:focus-visible {
   outline: 2px solid var(--accent);
   outline-offset: 3px;
@@ -251,7 +273,8 @@ h6 {
   .animate-scroll-indicator,
   .animate-aurora,
   .aurora-layer,
-  .aurora-layer::after {
+  .aurora-layer::after,
+  .team-marquee-track {
     animation: none !important;
   }
 }
