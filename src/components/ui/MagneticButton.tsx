@@ -15,6 +15,7 @@ interface MagneticButtonProps {
   className?: string;
   type?: "button" | "submit";
   ariaLabel?: string;
+  disabled?: boolean;
 }
 
 const variantStyles: Record<ButtonVariant, string> = {
@@ -34,6 +35,7 @@ export function MagneticButton({
   className = "",
   type = "button",
   ariaLabel,
+  disabled = false,
 }: MagneticButtonProps) {
   const reducedMotion = useReducedMotion();
   const { ref, handleMouseMove, handleMouseLeave } = useMagneticButton({
@@ -65,10 +67,11 @@ export function MagneticButton({
       ref={ref as React.RefObject<HTMLButtonElement>}
       type={type}
       onClick={onClick}
-      onMouseMove={reducedMotion ? undefined : handleMouseMove}
-      onMouseLeave={reducedMotion ? undefined : handleMouseLeave}
-      className={combinedClassName}
-      whileTap={reducedMotion ? undefined : { scale: 0.97 }}
+      disabled={disabled}
+      onMouseMove={reducedMotion || disabled ? undefined : handleMouseMove}
+      onMouseLeave={reducedMotion || disabled ? undefined : handleMouseLeave}
+      className={`${combinedClassName}${disabled ? " pointer-events-none opacity-60" : ""}`}
+      whileTap={reducedMotion || disabled ? undefined : { scale: 0.97 }}
       aria-label={ariaLabel}
     >
       {children}
