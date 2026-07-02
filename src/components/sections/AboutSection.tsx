@@ -1,112 +1,52 @@
 "use client";
 
-import { useEffect, useRef } from "react";
-import gsap from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { AnimatedCounter } from "@/components/ui/AnimatedCounter";
 import { RevealOnScroll } from "@/components/ui/RevealOnScroll";
-import { ABOUT_CONTENT, ABOUT_STATS } from "@/lib/constants";
-import { useReducedMotion } from "@/hooks/useReducedMotion";
-
-gsap.registerPlugin(ScrollTrigger);
+import { ABOUT_PILLARS, ABOUT_STATS } from "@/lib/constants";
 
 export function AboutSection() {
-  const imageRef = useRef<HTMLDivElement>(null);
-  const reducedMotion = useReducedMotion();
-
-  useEffect(() => {
-    if (reducedMotion || !imageRef.current) return;
-
-    const trigger = gsap.to(imageRef.current, {
-      y: -60,
-      ease: "none",
-      scrollTrigger: {
-        trigger: imageRef.current,
-        start: "top bottom",
-        end: "bottom top",
-        scrub: true,
-      },
-    });
-
-    return () => trigger.scrollTrigger?.kill();
-  }, [reducedMotion]);
-
   return (
     <section
       id="about"
-      className="section-padding relative bg-bg-secondary"
+      className="section-padding relative overflow-hidden bg-bg-secondary"
       aria-labelledby="about-heading"
     >
-      <div className="mx-auto max-w-7xl px-6 lg:px-8">
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(201,162,39,0.06),transparent_70%)]" />
+
+      <div className="relative mx-auto max-w-7xl px-6 lg:px-8">
         <SectionHeading
           id="about-heading"
           title="About Us"
           subtitle="A results-driven digital marketing company helping brands grow online."
+          align="center"
         />
 
-        <div className="grid items-center gap-12 lg:grid-cols-2 lg:gap-20">
-          <RevealOnScroll>
-            <div className="space-y-8">
-              <div>
-                <h3 className="mb-2 text-sm font-semibold uppercase tracking-wider text-accent">
-                  Mission
-                </h3>
-                <p className="text-base leading-relaxed text-muted">
-                  {ABOUT_CONTENT.mission}
-                </p>
-              </div>
-              <div>
-                <h3 className="mb-2 text-sm font-semibold uppercase tracking-wider text-accent">
-                  Vision
-                </h3>
-                <p className="text-base leading-relaxed text-muted">
-                  {ABOUT_CONTENT.vision}
-                </p>
-              </div>
-              <div>
-                <h3 className="mb-2 text-sm font-semibold uppercase tracking-wider text-accent">
-                  Growth-Focused Approach
-                </h3>
-                <p className="text-base leading-relaxed text-muted">
-                  {ABOUT_CONTENT.approach}
-                </p>
-              </div>
-              <div>
-                <h3 className="mb-2 text-sm font-semibold uppercase tracking-wider text-accent">
-                  Kerala-Based Expertise
-                </h3>
-                <p className="text-base leading-relaxed text-muted">
-                  {ABOUT_CONTENT.expertise}
-                </p>
-              </div>
-            </div>
-          </RevealOnScroll>
+        <div className="grid gap-6 md:grid-cols-2 md:gap-8">
+          {ABOUT_PILLARS.map((pillar, index) => (
+            <RevealOnScroll key={pillar.number} delay={index * 0.08}>
+              <article className="group relative h-full overflow-hidden rounded-2xl border border-border bg-card/60 p-8 backdrop-blur-sm transition-all duration-500 hover:border-accent/30 hover:bg-card">
+                <div className="absolute left-0 top-0 h-1 w-0 bg-accent transition-all duration-500 group-hover:w-full" />
 
-          <RevealOnScroll delay={0.2}>
-            <div
-              ref={imageRef}
-              className="relative aspect-[4/5] overflow-hidden rounded-2xl border border-border"
-              aria-label="Agency workspace placeholder"
-            >
-              <div className="absolute inset-0 bg-gradient-to-br from-accent/20 via-card to-bg" />
-              <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_40%,rgba(201,162,39,0.15),transparent_60%)]" />
-              <div className="absolute bottom-8 left-8 right-8">
-                <p className="font-heading text-2xl font-bold text-text/80">
-                  Crafting Digital Excellence
+                <span className="absolute right-6 top-6 font-heading text-4xl font-bold text-accent/15 transition-colors duration-500 group-hover:text-accent/30">
+                  {pillar.number}
+                </span>
+
+                <h3 className="mb-3 pr-12 text-sm font-semibold uppercase tracking-wider text-accent">
+                  {pillar.title}
+                </h3>
+                <p className="text-base leading-relaxed text-muted">
+                  {pillar.body}
                 </p>
-                <p className="mt-2 text-sm text-muted">
-                  Kochi, Kerala
-                </p>
-              </div>
-            </div>
-          </RevealOnScroll>
+              </article>
+            </RevealOnScroll>
+          ))}
         </div>
 
-        <div className="mt-16 grid grid-cols-1 gap-8 border-t border-border pt-16 sm:grid-cols-3">
+        <div className="mt-16 grid grid-cols-1 gap-6 border-t border-border pt-16 sm:grid-cols-3 lg:gap-8">
           {ABOUT_STATS.map((stat, index) => (
             <RevealOnScroll key={stat.label} delay={index * 0.1}>
-              <div className="text-center sm:text-left">
+              <div className="rounded-xl border border-border bg-card/40 px-6 py-8 text-center">
                 <p className="font-heading text-4xl font-bold text-text md:text-5xl">
                   <AnimatedCounter
                     value={stat.value}
@@ -114,7 +54,9 @@ export function AboutSection() {
                     prefix={stat.prefix}
                   />
                 </p>
-                <p className="mt-2 text-sm text-muted">{stat.label}</p>
+                <p className="mt-3 text-sm uppercase tracking-widest text-muted">
+                  {stat.label}
+                </p>
               </div>
             </RevealOnScroll>
           ))}

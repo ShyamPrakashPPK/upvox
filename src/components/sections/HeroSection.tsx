@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import { ChevronDown } from "lucide-react";
+import { AuroraBackground } from "@/components/ui/aurora-background";
 import { MagneticButton } from "@/components/ui/MagneticButton";
 import { staggerContainer, staggerItem } from "@/lib/animations";
 
@@ -9,14 +10,12 @@ export function HeroSection() {
   const headingWords = "Best Digital Marketing Agency in Kerala".split(" ");
 
   return (
-    <section
+    <AuroraBackground
       id="home"
-      className="relative flex min-h-screen items-center justify-center overflow-hidden pt-24"
+      className="relative min-h-screen items-center justify-center overflow-hidden pt-24"
       aria-labelledby="hero-heading"
+      showRadialGradient
     >
-      {/* Background Glow */}
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,rgba(201,162,39,0.08),transparent_60%)]" />
-
       <div className="relative z-10 mx-auto flex w-full max-w-5xl items-center justify-center px-6 text-center lg:px-8">
         <motion.div
           variants={staggerContainer}
@@ -89,6 +88,6 @@ export function HeroSection() {
         <span className="text-xs uppercase tracking-widest">Scroll</span>
         <ChevronDown size={20} className="animate-scroll-indicator" />
       </motion.a>
-    </section>
+    </AuroraBackground>
   );
 }

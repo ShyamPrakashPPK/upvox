@@ -11,6 +11,7 @@ import {
   Clapperboard,
 } from "lucide-react";
 import type {
+  AboutPillar,
   ContactInfo,
   FAQItem,
   Feature,
@@ -94,17 +95,17 @@ export const SERVICES: Service[] = [
 
 
 export const ABOUT_STATS: StatItem[] = [
-  { value: 150, suffix: "+", label: "Clients Served" },
-  { value: 500, suffix: "+", label: "Campaigns Managed" },
+  { value: 20, suffix: "+", label: "Clients Served" },
+  { value: 80, suffix: "+", label: "Campaigns Managed" },
   { value: 95, suffix: "%", label: "Client Retention" },
 ];
 
 export const HERO_STATS: StatItem[] = ABOUT_STATS;
 
 export const STATS_SECTION: StatItem[] = [
-  { value: 150, suffix: "+", label: "Clients" },
+  { value: 20, suffix: "+", label: "Clients" },
   { value: 10, suffix: "M+", label: "Impressions" },
-  { value: 500, suffix: "+", label: "Campaigns" },
+  { value: 80, suffix: "+", label: "Campaigns" },
   { value: 95, suffix: "%", label: "Retention" },
 ];
 
@@ -206,8 +207,8 @@ export const FAQ_ITEMS: FAQItem[] = [
 ];
 
 export const CONTACT_INFO: ContactInfo = {
-  email: "hello@upvox.in",
-  phone: "+91 98765 43210",
+  email: "upvoxcreative@gmail.com",
+  phone: "8921 569922",
   address: "Infopark, Kochi, Kerala 682042, India",
 };
 
@@ -229,3 +230,18 @@ export const ABOUT_CONTENT = {
   expertise:
     "Deep understanding of Kerala's market dynamics, consumer behavior, and local search landscape gives our clients a competitive edge.",
 };
+
+export const ABOUT_PILLARS: AboutPillar[] = [
+  { number: "01", title: "Mission", body: ABOUT_CONTENT.mission },
+  { number: "02", title: "Vision", body: ABOUT_CONTENT.vision },
+  {
+    number: "03",
+    title: "Growth-Focused Approach",
+    body: ABOUT_CONTENT.approach,
+  },
+  {
+    number: "04",
+    title: "Kerala-Based Expertise",
+    body: ABOUT_CONTENT.expertise,
+  },
+];

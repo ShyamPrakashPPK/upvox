@@ -42,6 +42,12 @@ export interface Feature {
   description: string;
 }
 
+export interface AboutPillar {
+  number: string;
+  title: string;
+  body: string;
+}
+
 export interface ContactInfo {
   email: string;
   phone: string;

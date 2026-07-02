@@ -20,7 +20,6 @@ export function ServicesSection() {
         <SectionHeading
           id="services-heading"
           title="What We Do"
-          subtitle="At Upvox Creative, we help businesses build a strong digital presence through creative branding, professional web solutions, and result-driven marketing strategies that support long-term business growth."
           description="We combine creativity, technology, and performance-driven marketing strategies to help businesses strengthen their digital presence, connect with the right audience, generate quality leads, and achieve sustainable business growth."
           align="center"
         />
