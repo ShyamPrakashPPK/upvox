@@ -57,7 +57,9 @@ export function AnimatedCounter({
 
   return (
     <span ref={counterRef} className={className} aria-label={`${prefix}${value}${suffix}`}>
-      {prefix}0{suffix}
+      {prefix}
+      {value}
+      {suffix}
     </span>
   );
 }

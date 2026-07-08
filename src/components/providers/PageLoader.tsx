@@ -13,7 +13,7 @@ export function PageLoader() {
     if (reducedMotion) return;
 
     const handleLoad = () => {
-      setTimeout(() => setIsLoading(false), 800);
+      setTimeout(() => setIsLoading(false), 300);
     };
 
     if (document.readyState === "complete") {

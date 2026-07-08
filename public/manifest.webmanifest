@@ -1,0 +1,21 @@
+{
+  "name": "Upvox Creative",
+  "short_name": "Upvox",
+  "description": "Digital marketing agency in Kerala — SEO, Google Ads, Meta Ads, branding, and web development.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#151515",
+  "theme_color": "#151515",
+  "icons": [
+    {
+      "src": "/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    },
+    {
+      "src": "/apple-touch-icon.png",
+      "sizes": "180x180",
+      "type": "image/png"
+    }
+  ]
+}

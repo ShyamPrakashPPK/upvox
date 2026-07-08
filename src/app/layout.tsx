@@ -1,9 +1,9 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Google_Sans } from "next/font/google";
 import { SmoothScrollProvider } from "@/components/providers/SmoothScrollProvider";
 import { PageLoader } from "@/components/providers/PageLoader";
 import { siteMetadata } from "@/lib/metadata";
-import { getLocalBusinessSchema } from "@/lib/structured-data";
+import { getStructuredData } from "@/lib/structured-data";
 import "./globals.css";
 
 const googleSans = Google_Sans({
@@ -14,12 +14,18 @@ const googleSans = Google_Sans({
 
 export const metadata: Metadata = siteMetadata;
 
+export const viewport: Viewport = {
+  width: "device-width",
+  initialScale: 1,
+  themeColor: "#151515",
+};
+
 export default function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  const jsonLd = getLocalBusinessSchema();
+  const jsonLd = getStructuredData();
 
   return (
     <html lang="en" className={`${googleSans.variable} h-full antialiased`}>

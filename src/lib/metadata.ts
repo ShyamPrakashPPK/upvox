@@ -1,29 +1,29 @@
 import type { Metadata } from "next";
+import { siteUrl } from "./site-url";
 
-const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "https://upvox.in";
+const gscVerification = process.env.NEXT_PUBLIC_GSC_VERIFICATION;
 
 export const siteMetadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: {
-    default: "Upvox | Best Digital Marketing Agency in Kerala",
-    template: "%s | Upvox",
+    default: "Upvox Creative | Best Digital Marketing Agency in Kerala",
+    template: "%s | Upvox Creative",
   },
   description:
-    "Upvox is the best digital marketing agency in Kerala. We help businesses grow through SEO, social media marketing, Google Ads, Meta Ads, branding, and website development. Your trusted digital marketing company in Kerala.",
+    "Seeking the best digital marketing agency in Kerala? Upvox Creative delivers premium branding, SEO, web design & strategy for lasting impact.",
   keywords: [
-    "Best Digital Marketing Agency in Kerala",
-    "Digital Marketing Company Kerala",
-    "SEO Agency Kerala",
-    "Social Media Marketing Kerala",
-    "Google Ads Agency Kerala",
-    "Website Development Kerala",
-    "digital marketing Kochi",
-    "performance marketing Kerala",
+    "digital marketing agency Kerala",
+    "digital marketing company Kochi",
+    "SEO agency Kerala",
+    "Google Ads agency Kerala",
+    "Meta Ads management Kerala",
     "branding agency Kerala",
+    "website development Kerala",
+    "performance marketing Kerala",
   ],
-  authors: [{ name: "Upvox" }],
-  creator: "Upvox",
-  publisher: "Upvox",
+  authors: [{ name: "Upvox Creative" }],
+  creator: "Upvox Creative",
+  publisher: "Upvox Creative",
   robots: {
     index: true,
     follow: true,
@@ -44,28 +44,32 @@ export const siteMetadata: Metadata = {
       },
     ],
   },
+  manifest: "/manifest.webmanifest",
   openGraph: {
     type: "website",
     locale: "en_IN",
     url: siteUrl,
-    siteName: "Upvox",
-    title: "Upvox | Best Digital Marketing Agency in Kerala",
+    siteName: "Upvox Creative",
+    title: "Upvox Creative | Best Digital Marketing Agency in Kerala",
     description:
-      "Helping Kerala businesses generate more leads, customers, and revenue through SEO, social media, performance marketing, branding, and web development.",
+      "Seeking the best digital marketing agency in Kerala? Upvox Creative delivers premium branding, SEO, web design & strategy for lasting impact.",
     images: [
       {
         url: "/og-image.png",
         width: 1200,
         height: 630,
-        alt: "Upvox - Best Digital Marketing Agency in Kerala",
+        alt: "Upvox Creative — Digital Marketing Agency in Kerala",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Upvox | Best Digital Marketing Agency in Kerala",
+    title: "Upvox Creative | Best Digital Marketing Agency in Kerala",
     description:
-      "Helping Kerala businesses generate more leads, customers, and revenue through SEO, social media, performance marketing, branding, and web development.",
+      "Seeking the best digital marketing agency in Kerala? Upvox Creative delivers premium branding, SEO, web design & strategy for lasting impact.",
     images: ["/og-image.png"],
   },
+  ...(gscVerification
+    ? { verification: { google: gscVerification } }
+    : {}),
 };

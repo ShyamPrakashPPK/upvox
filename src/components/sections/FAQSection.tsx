@@ -34,7 +34,7 @@ export function FAQSection() {
         <SectionHeading
           id="faq-heading"
           title="Frequently Asked Questions"
-          subtitle="Everything you need to know about working with Upvox."
+          subtitle="Everything you need to know about working with Upvox Creative."
           align="center"
         />
 
@@ -54,9 +54,9 @@ export function FAQSection() {
                     aria-expanded={isOpen}
                     aria-controls={`faq-answer-${index}`}
                   >
-                    <span className="font-heading text-lg font-medium text-text md:text-xl">
+                    <h3 className="font-heading text-lg font-medium text-text md:text-xl">
                       {item.question}
-                    </span>
+                    </h3>
                     <span className="shrink-0 text-accent">
                       {isOpen ? <Minus size={20} /> : <Plus size={20} />}
                     </span>
