@@ -23,6 +23,7 @@ import type {
 } from "@/types";
 
 export const AGENCY_NAME = "Upvox";
+export const AGENCY_LOGO = "/images/Upvox.png";
 
 export const NAV_LINKS: NavLink[] = [
   { label: "Home", href: "#home", sectionId: "home" },

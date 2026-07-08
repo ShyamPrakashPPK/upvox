@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { BrandLogo } from "@/components/ui/BrandLogo";
 import { SOCIAL_ICON_MAP } from "@/components/icons/SocialIcons";
 import {
   AGENCY_NAME,
@@ -16,12 +17,8 @@ export function Footer() {
       <div className="mx-auto max-w-7xl px-6 py-16 lg:px-8 lg:py-20">
         <div className="grid gap-12 md:grid-cols-2 lg:grid-cols-4">
           <div>
-            <Link
-              href="#home"
-              className="font-heading text-2xl font-bold text-text"
-            >
-              {AGENCY_NAME}
-              <span className="text-accent">.</span>
+            <Link href="#home" className="inline-flex">
+              <BrandLogo size="sm" />
             </Link>
             <p className="mt-4 max-w-xs text-sm leading-relaxed text-muted">
               Kerala&apos;s premium digital marketing agency helping brands grow

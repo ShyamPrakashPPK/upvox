@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X } from "lucide-react";
 import Link from "next/link";
+import { BrandLogo } from "@/components/ui/BrandLogo";
 import { AGENCY_NAME, NAV_LINKS } from "@/lib/constants";
 import { useScrollSpy } from "@/hooks/useScrollSpy";
 import { MagneticButton } from "@/components/ui/MagneticButton";
@@ -105,11 +106,10 @@ export function Navbar() {
         <div className="mx-auto flex max-w-7xl items-center justify-between px-6 lg:px-8">
           <Link
             href="#home"
-            className="font-heading text-2xl font-bold tracking-tight text-text"
+            className="inline-flex shrink-0"
             aria-label={`${AGENCY_NAME} home`}
           >
-            {AGENCY_NAME}
-            <span className="text-accent">.</span>
+            <BrandLogo size="sm" priority />
           </Link>
 
           <nav

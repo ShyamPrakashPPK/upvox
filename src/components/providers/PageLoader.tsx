@@ -3,7 +3,7 @@
 import { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useReducedMotion } from "@/hooks/useReducedMotion";
-import { AGENCY_NAME } from "@/lib/constants";
+import { BrandLogo } from "@/components/ui/BrandLogo";
 
 export function PageLoader() {
   const reducedMotion = useReducedMotion();
@@ -43,10 +43,7 @@ export function PageLoader() {
             transition={{ duration: 0.5 }}
             className="text-center"
           >
-            <span className="font-heading text-4xl font-bold tracking-tight text-text md:text-5xl">
-              {AGENCY_NAME}
-              <span className="text-accent">.</span>
-            </span>
+            <BrandLogo size="lg" priority />
             <motion.div
               className="mx-auto mt-6 h-px w-24 bg-accent/60"
               initial={{ scaleX: 0 }}
