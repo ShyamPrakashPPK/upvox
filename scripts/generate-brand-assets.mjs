@@ -10,9 +10,10 @@ const logoPath = path.join(root, "public/images/Upvox.png");
 const appDir = path.join(root, "src/app");
 const publicDir = path.join(root, "public");
 
+// Match Upvox.png — white logo on black
 const background = { r: 0, g: 0, b: 0, alpha: 1 };
 
-async function createSquareIconBuffer(size, paddingRatio = 0.12) {
+async function createSquareIconBuffer(size, paddingRatio = 0.1) {
   const padding = Math.round(size * paddingRatio);
   const maxWidth = size - padding * 2;
   const maxHeight = size - padding * 2;
@@ -47,7 +48,7 @@ async function createSquareIconBuffer(size, paddingRatio = 0.12) {
     .toBuffer();
 }
 
-async function createSquareIcon(size, outputPath, paddingRatio = 0.12) {
+async function createSquareIcon(size, outputPath, paddingRatio = 0.1) {
   const buffer = await createSquareIconBuffer(size, paddingRatio);
   await sharp(buffer).toFile(outputPath);
   return buffer;
@@ -56,7 +57,7 @@ async function createSquareIcon(size, outputPath, paddingRatio = 0.12) {
 async function createFaviconIco(outputPath) {
   const sizes = [16, 32, 48];
   const buffers = await Promise.all(
-    sizes.map((size) => createSquareIconBuffer(size, 0.1)),
+    sizes.map((size) => createSquareIconBuffer(size, 0.08)),
   );
   const ico = await toIco(buffers);
   await writeFile(outputPath, ico);
@@ -79,14 +80,14 @@ async function createOgImage(outputPath) {
       width,
       height,
       channels: 4,
-      background: { r: 21, g: 21, b: 21, alpha: 1 },
+      background,
     },
   })
     .composite([
       {
         input: resizedLogo,
         left: Math.round((width - logoW) / 2),
-        top: Math.round((height - logoH) / 2 - 40),
+        top: Math.round((height - logoH) / 2),
       },
     ])
     .png()
@@ -96,17 +97,15 @@ async function createOgImage(outputPath) {
 await mkdir(appDir, { recursive: true });
 
 await Promise.all([
-  createSquareIcon(32, path.join(publicDir, "favicon-32x32.png"), 0.1),
-  createSquareIcon(48, path.join(publicDir, "favicon-48x48.png"), 0.1),
-  createSquareIcon(180, path.join(publicDir, "apple-touch-icon.png"), 0.12),
-  createSquareIcon(512, path.join(publicDir, "icon-512.png"), 0.12),
-  createSquareIcon(512, path.join(appDir, "icon.png"), 0.12),
-  createSquareIcon(180, path.join(appDir, "apple-icon.png"), 0.12),
+  createSquareIcon(32, path.join(publicDir, "favicon-32x32.png"), 0.08),
+  createSquareIcon(48, path.join(publicDir, "favicon-48x48.png"), 0.08),
+  createSquareIcon(180, path.join(publicDir, "apple-touch-icon.png"), 0.1),
+  createSquareIcon(512, path.join(publicDir, "icon-512.png"), 0.1),
+  createSquareIcon(512, path.join(appDir, "icon.png"), 0.1),
+  createSquareIcon(180, path.join(appDir, "apple-icon.png"), 0.1),
   createFaviconIco(path.join(appDir, "favicon.ico")),
   createFaviconIco(path.join(publicDir, "favicon.ico")),
   createOgImage(path.join(publicDir, "og-image.png")),
 ]);
 
-console.log(
-  "Generated favicon.ico, icon PNGs, and og-image from public/images/Upvox.png",
-);
+console.log("Generated all icons from public/images/Upvox.png");
