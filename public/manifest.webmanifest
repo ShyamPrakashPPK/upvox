@@ -4,9 +4,14 @@
   "description": "Digital marketing agency in Kerala — SEO, Google Ads, Meta Ads, branding, and web development.",
   "start_url": "/",
   "display": "standalone",
-  "background_color": "#151515",
-  "theme_color": "#151515",
+  "background_color": "#000000",
+  "theme_color": "#000000",
   "icons": [
+    {
+      "src": "/favicon-48x48.png",
+      "sizes": "48x48",
+      "type": "image/png"
+    },
     {
       "src": "/icon-512.png",
       "sizes": "512x512",
