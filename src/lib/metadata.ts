@@ -31,6 +31,19 @@ export const siteMetadata: Metadata = {
   alternates: {
     canonical: "/",
   },
+  icons: {
+    icon: [
+      { url: "/favicon-32x32.png", sizes: "32x32", type: "image/png" },
+      { url: "/icon-512.png", sizes: "512x512", type: "image/png" },
+    ],
+    apple: [
+      {
+        url: "/apple-touch-icon.png",
+        sizes: "180x180",
+        type: "image/png",
+      },
+    ],
+  },
   openGraph: {
     type: "website",
     locale: "en_IN",
@@ -41,7 +54,7 @@ export const siteMetadata: Metadata = {
       "Helping Kerala businesses generate more leads, customers, and revenue through SEO, social media, performance marketing, branding, and web development.",
     images: [
       {
-        url: "/og-image.svg",
+        url: "/og-image.png",
         width: 1200,
         height: 630,
         alt: "Upvox - Best Digital Marketing Agency in Kerala",
@@ -53,6 +66,6 @@ export const siteMetadata: Metadata = {
     title: "Upvox | Best Digital Marketing Agency in Kerala",
     description:
       "Helping Kerala businesses generate more leads, customers, and revenue through SEO, social media, performance marketing, branding, and web development.",
-    images: ["/og-image.svg"],
+    images: ["/og-image.png"],
   },
 };
