@@ -1,2 +1,1 @@
-export const siteUrl =
-  process.env.NEXT_PUBLIC_SITE_URL ?? "https://www.upvoxcreative.com";
+export { SITE_URL as siteUrl } from "./seo";

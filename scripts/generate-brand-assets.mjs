@@ -13,7 +13,15 @@ const publicDir = path.join(root, "public");
 // Match Upvox.png — white logo on black
 const background = { r: 0, g: 0, b: 0, alpha: 1 };
 
-async function createSquareIconBuffer(size, paddingRatio = 0.1) {
+function paddingRatioForSize(size) {
+  if (size <= 16) return 0.04;
+  if (size <= 32) return 0.05;
+  if (size <= 48) return 0.06;
+  if (size <= 96) return 0.08;
+  return 0.1;
+}
+
+async function createSquareIconBuffer(size, paddingRatio = paddingRatioForSize(size)) {
   const padding = Math.round(size * paddingRatio);
   const maxWidth = size - padding * 2;
   const maxHeight = size - padding * 2;
@@ -55,9 +63,9 @@ async function createSquareIcon(size, outputPath, paddingRatio = 0.1) {
 }
 
 async function createFaviconIco(outputPath) {
-  const sizes = [16, 32, 48];
+  const sizes = [16, 32, 48, 96];
   const buffers = await Promise.all(
-    sizes.map((size) => createSquareIconBuffer(size, 0.08)),
+    sizes.map((size) => createSquareIconBuffer(size)),
   );
   const ico = await toIco(buffers);
   await writeFile(outputPath, ico);
@@ -97,8 +105,9 @@ async function createOgImage(outputPath) {
 await mkdir(appDir, { recursive: true });
 
 await Promise.all([
-  createSquareIcon(32, path.join(publicDir, "favicon-32x32.png"), 0.08),
-  createSquareIcon(48, path.join(publicDir, "favicon-48x48.png"), 0.08),
+  createSquareIcon(32, path.join(publicDir, "favicon-32x32.png")),
+  createSquareIcon(48, path.join(publicDir, "favicon-48x48.png")),
+  createSquareIcon(96, path.join(publicDir, "favicon-96x96.png")),
   createSquareIcon(180, path.join(publicDir, "apple-touch-icon.png"), 0.1),
   createSquareIcon(512, path.join(publicDir, "icon-512.png"), 0.1),
   createSquareIcon(512, path.join(appDir, "icon.png"), 0.1),

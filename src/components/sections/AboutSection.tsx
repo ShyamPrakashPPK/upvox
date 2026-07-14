@@ -18,10 +18,11 @@ export function AboutSection() {
         <div className="flex justify-center"> 
           <div className="max-w-4xl text-center p-5">
             <h2 className="text-4xl font-bold mb-4">About Us</h2>
-          <p className="text-center text-lg text-muted"> Founded in 2025, Upvox Creative is a digital marketing and website development agency committed to
-            helping businesses grow in the digital world. We provide strategic digital marketing solutions and
-            professional website development ser vices designed to strengthen brand presence, improve online
-            visibility, and support business growth.</p>
+          <p className="text-center text-lg text-muted">
+            Founded in 2025, we partner with Kerala businesses to turn digital
+            channels into measurable growth — from brand strategy and creative
+            campaigns to high-converting websites and performance marketing.
+          </p>
           </div>
         </div>
       

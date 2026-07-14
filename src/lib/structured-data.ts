@@ -1,9 +1,17 @@
 import { CONTACT_INFO, FAQ_ITEMS, SERVICES } from "./constants";
+import { SITE_DESCRIPTION } from "./seo";
 import { siteUrl } from "./site-url";
 
 const organizationId = `${siteUrl}/#organization`;
 const websiteId = `${siteUrl}/#website`;
 const faqId = `${siteUrl}/#faq`;
+
+const organizationLogo = {
+  "@type": "ImageObject" as const,
+  url: `${siteUrl}/favicon-96x96.png`,
+  width: 96,
+  height: 96,
+};
 
 export function getStructuredData() {
   return {
@@ -14,8 +22,7 @@ export function getStructuredData() {
         "@id": websiteId,
         url: siteUrl,
         name: "Upvox Creative",
-        description:
-          "Digital marketing agency in Kerala offering SEO, Google Ads, Meta Ads, branding, and website development.",
+        description: SITE_DESCRIPTION,
         publisher: { "@id": organizationId },
         inLanguage: "en-IN",
       },
@@ -24,10 +31,9 @@ export function getStructuredData() {
         "@id": organizationId,
         name: "Upvox Creative",
         legalName: "Upvox Creative",
-        description:
-          "Digital marketing agency in Kerala offering SEO, Google Ads, Meta Ads, branding, website development, and performance marketing.",
+        description: SITE_DESCRIPTION,
         url: siteUrl,
-        logo: `${siteUrl}/images/Upvox.png`,
+        logo: organizationLogo,
         image: `${siteUrl}/og-image.png`,
         telephone: CONTACT_INFO.phone,
         email: CONTACT_INFO.email,

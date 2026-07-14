@@ -1,16 +1,13 @@
 import type { Metadata } from "next";
-import { siteUrl } from "./site-url";
-
-const gscVerification = process.env.NEXT_PUBLIC_GSC_VERIFICATION;
+import { GSC_VERIFICATION, SITE_DESCRIPTION, SITE_TITLE, SITE_URL } from "./seo";
 
 export const siteMetadata: Metadata = {
-  metadataBase: new URL(siteUrl),
+  metadataBase: new URL(SITE_URL),
   title: {
-    default: "Upvox Creative | Best Digital Marketing Agency in Kerala",
+    default: SITE_TITLE,
     template: "%s | Upvox Creative",
   },
-  description:
-    "Seeking the best digital marketing agency in Kerala? Upvox Creative delivers premium branding, SEO, web design & strategy for lasting impact.",
+  description: SITE_DESCRIPTION,
   keywords: [
     "digital marketing agency Kerala",
     "digital marketing company Kochi",
@@ -33,8 +30,9 @@ export const siteMetadata: Metadata = {
   },
   icons: {
     icon: [
-      { url: "/favicon.ico", sizes: "any" },
+      { url: "/favicon-96x96.png", sizes: "96x96", type: "image/png" },
       { url: "/favicon-48x48.png", sizes: "48x48", type: "image/png" },
+      { url: "/favicon.ico", sizes: "any" },
       { url: "/favicon-32x32.png", sizes: "32x32", type: "image/png" },
       { url: "/icon-512.png", sizes: "512x512", type: "image/png" },
     ],
@@ -51,11 +49,10 @@ export const siteMetadata: Metadata = {
   openGraph: {
     type: "website",
     locale: "en_IN",
-    url: siteUrl,
+    url: SITE_URL,
     siteName: "Upvox Creative",
-    title: "Upvox Creative | Best Digital Marketing Agency in Kerala",
-    description:
-      "Seeking the best digital marketing agency in Kerala? Upvox Creative delivers premium branding, SEO, web design & strategy for lasting impact.",
+    title: SITE_TITLE,
+    description: SITE_DESCRIPTION,
     images: [
       {
         url: "/og-image.png",
@@ -67,12 +64,11 @@ export const siteMetadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Upvox Creative | Best Digital Marketing Agency in Kerala",
-    description:
-      "Seeking the best digital marketing agency in Kerala? Upvox Creative delivers premium branding, SEO, web design & strategy for lasting impact.",
+    title: SITE_TITLE,
+    description: SITE_DESCRIPTION,
     images: ["/og-image.png"],
   },
-  ...(gscVerification
-    ? { verification: { google: gscVerification } }
+  ...(GSC_VERIFICATION
+    ? { verification: { google: GSC_VERIFICATION } }
     : {}),
 };
